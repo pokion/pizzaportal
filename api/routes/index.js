@@ -10,7 +10,7 @@ routes.use(bodyParser.json());
 
 //simple logging system
 routes.use((req, res, next) => {
-	console.log(`Resource requested: ${req.method} ${req.originalURL}`);
+	console.log(`Resource requested: ${req.method} ${req.originalUrl}`);
 	next();
 })
 

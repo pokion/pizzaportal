@@ -19,6 +19,19 @@ const EmployeeSchema = new Schema({
 	password: {
 		type: String, required: [true, "can't be empty"],
 	},
+	type: {//type of profille {1=admin, 2=manager, 3=basic employee}
+		type: Number,
+		required: true,
+	},
+	createdate: {
+		type: Date,
+		required: true,
+		default: new Date(),
+	},
+	token: {
+		type: String,
+		required: false,
+	},
 	contractdate: {//date of signing the contract
 		type: Date,
 		required: false,
@@ -27,9 +40,9 @@ const EmployeeSchema = new Schema({
 		type: String,
 		required: false,
 	},
-	type: {//type of profille {1=admin, 2=manager, 3=basic employee}
+	phonenumber: {
 		type: Number,
-		required: true,
+		required: false,
 	},
 });
 

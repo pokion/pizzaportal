@@ -1,4 +1,4 @@
-require(__dirname + '/api/db/db.connect')
+require('./api/db/db.connect');
 
 const app = require('express')();
 const mongoose = require('mongoose');
