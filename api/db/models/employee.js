@@ -31,18 +31,22 @@ const EmployeeSchema = new Schema({
 	token: {
 		type: String,
 		required: false,
+		default: null,
 	},
 	contractdate: {//date of signing the contract
 		type: Date,
 		required: false,
+		default: null,
 	},
 	position: {
 		type: String,
 		required: false,
+		default: null,
 	},
 	phonenumber: {
 		type: Number,
 		required: false,
+		default: null,
 	},
 });
 

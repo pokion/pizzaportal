@@ -13,17 +13,18 @@ module.exports = async (req, res, next) => {
 		const user = await EmployeeModel.findOne({ token });
 
 		if(user === null){
-			return res.status(401).send('Invalid Token 2');
+			return res.status(401).send('Invalid Token 1');
 		} else {
 			const decoded = jwt.verify(token, new Date(user.createdate).getTime()+'');
 
-			if(decoded.user_id === user._id && decoded.email === user.email){
+			if(decoded.user_id == user._id && decoded.email == user.email){
 				return next();
+			} else {
+				return res.status(401).send('Invalid Token 2');
 			}
 		}
 	} catch (err) {
 		console.log(err)
-		return res.status(401).send('Invalid Token 1');
+		return res.status(401).send(err);
 	}
-	return next();
 };
