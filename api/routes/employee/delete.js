@@ -12,6 +12,7 @@ module.exports = async (req, res) => {
 
 		if(!(id)) {
 			res.status(400).send("All input is required");
+			return 0;
 		}
 
 		const user = await EmployeeModel.findById(mongoose.Types.ObjectId(id));//search for id

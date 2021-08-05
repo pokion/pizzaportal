@@ -5,6 +5,7 @@ const login = require('./login');
 const register = require('./register');
 const del = require('./delete');
 const get = require('./get');
+const up = require('./update');
 
 //middelware
 const tokenValid = require.main.require('./api/validation/tokenValid');
@@ -49,5 +50,6 @@ GET
 	return
 	-all employess important informations
 */
+employee.patch('/', [tokenValid, permissionValid], up);
 
 module.exports = employee;

@@ -6,7 +6,7 @@ function firstConfig(){
 	const hash = bcrypt.hashSync('admin', salt);
 	
 	employee.find({type: 1}, (err, docs) =>{
-		console.log(docs)
+		//console.log(docs)
 		if(docs.length == 0){
 			employee({
 				firstname: 'admin',

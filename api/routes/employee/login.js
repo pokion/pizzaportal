@@ -3,12 +3,15 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 module.exports = async (req, res) => {
+
 	const EmployeeModel = mongoose.model('Employee');
+	
 	try {
 		const {  password, email } = req.body;
 
 		if(!(email && password)) {
 			res.status(400).send("All input is required");
+			return 0;
 		}
 
 		const user = await EmployeeModel.findOne({ email });
