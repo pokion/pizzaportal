@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 
 module.exports = async (req, res) => {
 
@@ -8,7 +6,7 @@ module.exports = async (req, res) => {
 
 	try {
 
-		const { token, id } = req.body;
+		const { id } = req.body;
 
 		if(!(id)) {
 			res.status(400).send("All input is required");

@@ -15,32 +15,32 @@ employee.post('/', login);
 /*
 POST
 	require
-	-email
-	-password
+	-email *string
+	-password *string
 	return
-	-token
+	-token *string
 */
 employee.put('/', [tokenValid, permissionValid], register);
 /*
 PUT
 	require
-	-firstname
-	-lastname
-	-email
-	-password
-	-type
-	-token
+	-firstname *string
+	-lastname *string
+	-email *string
+	-password *string
+	-type *number
+	-token *string
 	return
-	-status about account
+	-status about account *string
 */
 employee.delete('/', [tokenValid, permissionValid], del);
 /*
 DELETE
 	require
-	-token
-	-id
+	-token *string 
+	-id *string
 	return
-	-status about account
+	-status about account *string
 */
 employee.get('/', [tokenValid, permissionValid], get);
 /*
@@ -48,8 +48,17 @@ GET
 	require
 	null
 	return
-	-all employess important informations
+	-all employess important informations *array of objects
 */
 employee.patch('/', [tokenValid, permissionValid], up);
+/*
+PATCH
+	require
+	-token *string
+	-id *string
+	-update *object
+	return
+	-status information *string
+*/
 
 module.exports = employee;

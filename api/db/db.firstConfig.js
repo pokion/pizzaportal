@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+
 function firstConfig(){
 	const employee = mongoose.model('Employee');
 	const salt = bcrypt.genSaltSync(10);

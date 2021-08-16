@@ -9,6 +9,7 @@ module.exports = async (req, res) => {
 	try {
 
 		const { firstname, lastname, email, password, type, token } = req.body;
+		
 		if(!(firstname && lastname && email  && password && type)){
 			res.status(401).send('All input is required');
 			return 0;
