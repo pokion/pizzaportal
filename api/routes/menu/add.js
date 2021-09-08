@@ -21,7 +21,9 @@ module.exports = async (req, res) => {
 			ingredients,
 		}).save();
 		res.status(201).send("Dish added");
+
 	} catch (err){
+		
 		console.log(err);
 		res.status(500).send(err)
 	}

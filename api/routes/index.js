@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 //Require routes
 const employee = require('./employee');
 const menu = require('./menu');
+const stats = require('./stats');
+const order = require('./orders');
 
 //configuration bodyParser
 routes.use(bodyParser.urlencoded({ extended: true }));
@@ -17,5 +19,7 @@ routes.use((req, res, next) => {
 
 routes.use('/employee', employee);
 routes.use('/menu', menu);
+routes.use('/stats', stats);
+routes.use('/order', order);
 
 module.exports = routes;
