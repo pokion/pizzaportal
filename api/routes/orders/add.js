@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
 
 	try {
 
-		const { ingredientsAdd, ingredientsRemove, id, date, location } = req.body;
+		const { ingredientsAdd, ingredientsRemove, id, date, location, phoneNumber } = req.body;
 
 		if(!(id && location)) {
 			res.status(400).send("All input is required");
@@ -27,6 +27,7 @@ module.exports = async (req, res) => {
 				ingredients: dish.ingredients,
 				ingredientsRemove: ingredientsRemove || null,
 				ingredientsAdd: ingredientsAdd || null,
+				phoneNumber: phoneNumber || null,
 				date: date || new Date(),
 				location,
 				status: "Złożono zamówienie"

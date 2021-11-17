@@ -10,11 +10,11 @@ module.exports = async (req, res) => {
 		if(!(category)){
 			let user = await MenuModel.find().select("-__v");
 
-			res.status(500).send(user);
+			res.status(200).send(user);
 		}else if(category){
 			let user = await MenuModel.find({ category }).select("-__v");
 
-			res.status(500).send(user);
+			res.status(200).send(user);
 		}
 
 

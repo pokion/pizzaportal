@@ -25,6 +25,9 @@ const OrderSchema = new Schema({
 	},
 	status: {
 		type: String
+	},
+	phoneNumber: {
+		type: Number
 	}
 })
 
