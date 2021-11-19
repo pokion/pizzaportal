@@ -41,7 +41,7 @@
 	          <li class="nav-item active"><a href="menu.html" class="nav-link">Menu</a></li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	          <li class="nav-item"><a href="#" class="nav-link"><span class="oi oi-cart"></span> Koszyk <span id="cartCount">0</span></a></li>
+	          <li class="nav-item"><a href="javascript:cart.active()" class="nav-link"><span class="oi oi-cart"></span> Koszyk <span id="cartCount">0</span></a></li>
 	        </ul>
 	      </div>
 		  </div>
@@ -128,12 +128,12 @@
     <div id="cartContent" class="position-fixed container">
     	<div class="row border-bottom">
     		<span style="visibility: hidden;">asdasd</span>
-    		<span id="minim" class="oi oi-minus position-absolute"></span>
+    		<span onclick="cart.active()" style="cursor: pointer;" id="minim" class="oi oi-minus position-absolute"></span>
     	</div>
     	
-			<div id="cartProducts" class="row">
+			<div id="cartProducts" class="container p-0">
 
-						<div class="row border-bottom">
+						<!-- <div class="row border-bottom">
 							<div class="col-2 text-center border-right">
 								<span class="text-dark font-weight-bold">1</span>
 								<br>
@@ -147,82 +147,8 @@
 							<div class="col-2">
 								<p class="text-center">30.90</p>
 							</div>
-					</div>
-					<div class="row border-bottom">
-							<div class="col-2 text-center border-right">
-								<span class="text-dark font-weight-bold">1</span>
-								<br>
-								<button type="button" class="btn btn-success rounded p-1">+</button>
-								<button type="button" class="btn btn-danger rounded p-1">-</button>
-							</div>
-							<div class="col-8 pl-2 border-right">
-								<h3 class="text-dark">margarita</h3>
-								<h5 class="text-truncate text-dark">margarita,margarita,margarita,margarita,margarita,</h5>
-							</div>
-							<div class="col-2">
-								<p class="text-center">30.90</p>
-							</div>
-					</div>
-					<div class="row border-bottom">
-							<div class="col-2 text-center border-right">
-								<span class="text-dark font-weight-bold">1</span>
-								<br>
-								<button type="button" class="btn btn-success rounded p-1">+</button>
-								<button type="button" class="btn btn-danger rounded p-1">-</button>
-							</div>
-							<div class="col-8 pl-2 border-right">
-								<h3 class="text-dark">margarita</h3>
-								<h5 class="text-truncate text-dark">margarita,margarita,margarita,margarita,margarita,</h5>
-							</div>
-							<div class="col-2">
-								<p class="text-center">30.90</p>
-							</div>
-					</div>
-					<div class="row border-bottom">
-							<div class="col-2 text-center border-right">
-								<span class="text-dark font-weight-bold">1</span>
-								<br>
-								<button type="button" class="btn btn-success rounded p-1">+</button>
-								<button type="button" class="btn btn-danger rounded p-1">-</button>
-							</div>
-							<div class="col-8 pl-2 border-right">
-								<h3 class="text-dark">margarita</h3>
-								<h5 class="text-truncate text-dark">margarita,margarita,margarita,margarita,margarita,</h5>
-							</div>
-							<div class="col-2">
-								<p class="text-center">30.90</p>
-							</div>
-					</div>
-					<div class="row border-bottom">
-							<div class="col-2 text-center border-right">
-								<span class="text-dark font-weight-bold">1</span>
-								<br>
-								<button type="button" class="btn btn-success rounded p-1">+</button>
-								<button type="button" class="btn btn-danger rounded p-1">-</button>
-							</div>
-							<div class="col-8 pl-2 border-right">
-								<h3 class="text-dark">margarita</h3>
-								<h5 class="text-truncate text-dark">margarita,margarita,margarita,margarita,margarita,</h5>
-							</div>
-							<div class="col-2">
-								<p class="text-center">30.90</p>
-							</div>
-					</div>
-					<div class="row border-bottom">
-							<div class="col-2 text-center border-right">
-								<span class="text-dark font-weight-bold">1</span>
-								<br>
-								<button type="button" class="btn btn-success rounded p-1">+</button>
-								<button type="button" class="btn btn-danger rounded p-1">-</button>
-							</div>
-							<div class="col-8 pl-2 border-right">
-								<h3 class="text-dark">margarita</h3>
-								<h5 class="text-truncate text-dark">margarita,margarita,margarita,margarita,margarita,</h5>
-							</div>
-							<div class="col-2">
-								<p class="text-center">30.90</p>
-							</div>
-					</div>
+					</div> -->
+					
 			</div>
 
 			<div class="row border-top">
@@ -230,7 +156,7 @@
 					<a href="#" class="btn btn-dark btn-outline-dark align-middle">Do kasy</a>
 				</div>
 				<div class="col-2">
-					<p class="text-center">200.20</p>
+					<p class="text-center"><span class="text-dark" id="priceTotal">0</span> zł</p>
 				</div>
 			</div>
     </div>

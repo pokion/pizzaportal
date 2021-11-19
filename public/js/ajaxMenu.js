@@ -1,4 +1,4 @@
-let cart = new Cart();
+let cart;
 let request = $.ajax({
 	dataType: 'json',
 	url: '/menu',
@@ -6,6 +6,9 @@ let request = $.ajax({
 });
 
 request.done(function(resp){
+	cart  = new Cart();
+	cart.menu = resp;
+
 	let sortArray = []
 
 	let tab = $('#v-pills-tab');
@@ -22,7 +25,7 @@ request.done(function(resp){
 									<h3><a href="#">${elem.name}</a></h3>
 									<p>${elem.ingredients.join(", ")}</p>
 									<p class="price"><span>${elem.price.toFixed(2)} zł</span></p>
-									<p><a href="#" class="btn btn-white btn-outline-white">Add to cart</a></p>
+									<p><a href="javascript:cart.add('${elem._id}')" class="btn btn-white btn-outline-white">Add to cart</a></p>
 								</div>
 							</div>
 						</div>`;
@@ -39,7 +42,7 @@ request.done(function(resp){
 										</div>`;
 
 			tabContent.append($(tabContentToAppend));
-
+			console.log(elem)
 			let div =	`<div class="col-md-4 text-center">
 							<div class="menu-wrap">
 								<a href="javascript:void(0);" class="menu-img img mb-4" style="background-image: url(images/pizza-1.jpg);"></a>
@@ -47,7 +50,7 @@ request.done(function(resp){
 									<h3><a href="#">${elem.name}</a></h3>
 									<p>${elem.ingredients.join(", ")}</p>
 									<p class="price"><span>${elem.price.toFixed(2)} zł</span></p>
-									<p><a href="#" class="btn btn-white btn-outline-white">Add to cart</a></p>
+									<p><a href="javascript:cart.add('${elem._id}')" class="btn btn-white btn-outline-white">Add to cart</a></p>
 								</div>
 							</div>
 						</div>`;
