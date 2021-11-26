@@ -3,31 +3,29 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const OrderSchema = new Schema({
-	name: {
-		type: String, required: [true, "can't be empty"],
-	},
-	ingredients: {
-		type: [String], required: [true, "can't be empty"],
-	},
-	ingredientsRemove: {
-		type: [String]
-	},
-	ingredientsAdd: {
-		type: [String]
+	ids: {
+		type: [{id:String, value: Number}], 
+		required: [true, "can't be empty"],
 	},
 	date: {
 		type: Date,
 		required: true,
 		default: new Date(),
 	},
-	location: {
-		type: String, required: [true, "can't be empty"]
+	nameUser: {
+		type: String,
+		required: true
 	},
-	status: {
+	location: {
+		type: String, 
+		required: [true, "can't be empty"]
+	},
+	description: {
 		type: String
 	},
 	phoneNumber: {
-		type: Number
+		type: Number,
+		required: true
 	}
 })
 

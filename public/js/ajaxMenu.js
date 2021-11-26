@@ -62,3 +62,39 @@ request.done(function(resp){
 	$(tab.children("a")[0]).attr("aria-selected", "true")
 	$(tabContent.children("div")[0]).addClass("show active")
 })
+
+$('#pay').click(function(){
+	let nameUser = $('input[name="nameUser"]')[0].value;
+	let phoneNumber = $('input[name="number"]')[0].value;
+	let location = $('input[name="location"]')[0].value;
+	let description = $('textarea[name="description"]')[0].value;
+
+	let dish = $('div[dishid]');
+
+	let ids = [];
+
+	dish.each(function(ind, el){
+		ids.push({
+			id: $(el).attr('dishid').split('').slice(2).join(''),
+			value: Number($(el).find('span.font-weight-bold').text())
+		})
+	})
+
+	let data = {
+		nameUser,
+		location,
+		phoneNumber,
+		description,
+		ids
+	}
+
+	let order = $.ajax({
+		dataType: 'json',
+		url: '/order',
+		type: 'put',
+		data
+	});
+	order.done(function(resp){
+		console.log(resp)
+	})
+})

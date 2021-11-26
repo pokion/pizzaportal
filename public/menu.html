@@ -151,9 +151,47 @@
 					
 			</div>
 
+			<div id="register" class="container p-0 d-none">
+
+				<form  class="row">
+
+					<div class="col-4 mt-2">
+						<label>Imie i nazwisko</label>
+					</div>
+					<div class="col-8 mt-2">
+						<input type="text" name="nameUser" required>
+					</div>
+
+					<div class="col-4 mt-2">
+						<label>Tel. komórkowy</label>
+					</div>
+					<div class="col-8 mt-2">
+						<input type="tel" name="number" required>
+					</div>
+
+					<div class="col-4 mt-2">
+						<label>Adress</label>	
+					</div>
+					<div class="col-8 mt-2">
+						<input type="text" name="location" required>	
+					</div>
+
+					<div class="col-4 mt-2">
+						<label>Uwagi do zamówienia</label>
+					</div>
+					<div class="col-8 mt-2">
+						<textarea name="description" maxlength="100"></textarea>
+					</div>
+					<div class="col">
+						<button type="button" id="pay" class="btn btn-dark">ZAMÓW</button>
+					</div>
+				</form>
+					
+			</div>
+
 			<div class="row border-top">
-				<div class="col-10 border-right">
-					<a href="#" class="btn btn-dark btn-outline-dark align-middle">Do kasy</a>
+				<div class="col-10">
+					<a href="javascript:void(0)" id="kasa" class="btn btn-dark btn-outline-dark align-middle">Do kasy</a>
 				</div>
 				<div class="col-2">
 					<p class="text-center"><span class="text-dark" id="priceTotal">0</span> zł</p>

@@ -54,6 +54,7 @@ function Cart(){
 	}
 
 	this.priceAdd = function(num,id){
+
 		this.span.text(Number(this.span.text()) + 1 * (num / Math.abs(num)));
 		this.price.text((Number(this.price.text()) + Number(num)).toFixed(2));
 		let div = $('div').find(`[dishId="${id}"]`);
@@ -62,3 +63,8 @@ function Cart(){
 		(span.text() == '1' && Number(num) < 0) ? div.remove() : span.text((Number(span.text()) + 1 * (num / Math.abs(num))));
 	}
 }
+
+$('#kasa').click(function(){
+	$('#cartProducts').toggleClass('d-none');
+	$('#register').toggleClass('d-none');
+})
