@@ -29,7 +29,10 @@ module.exports = async (req, res) => {
 			let dataUser = {
 				token: user.token
 			}
-			res.status(200).json(dataUser);
+			res.set('x-access-token', user.token);
+			res.cookie('token', user.token, {expires: new Date(Date.now() + 900000), httpOnly: true, secure: true})
+			//res.redirect(301, '/admin/panel');
+			res.status(200).json(dataUser)
 		} else {
 			res.status(400).send("Invalid Credentials");
 		}
