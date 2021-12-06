@@ -61,23 +61,5 @@
     <script src="assets/js/settings.js"></script>
     <script src="assets/js/todolist.js"></script>
     <!-- endinject -->
-    <script type="text/javascript">
-
-      $('#target').submit(function(event){
-        event.preventDefault();
-
-        $.post('/employee', {email: $('input[name="email"]').val(), password: $('input[name="password"]').val()})
-          .done(function(data){
-            console.log(data)
-
-            //window.location.replace('admin/panel')
-          })
-          .fail(function(xhr, status, error){
-            console.log(xhr,status,error)
-          })
-      })
-
-      
-    </script>
   </body>
 </html>
