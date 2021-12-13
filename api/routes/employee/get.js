@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
 	try {
 		let user = await EmployeeModel.find().select("-token -password -__v");
 
-		res.status(500).send(user);
+		res.status(200).send(user);
 
 	} catch (err) {
 

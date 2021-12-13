@@ -10,6 +10,7 @@ const up = require('./update');
 //middelware
 const tokenValid = require.main.require('./api/validation/tokenValid');
 const permissionValid = require.main.require('./api/validation/permissionValid');
+const cookieParser = require.main.require('./api/validation/cookieParser');
 
 employee.post('/', login);
 /*
@@ -20,7 +21,7 @@ POST
 	return
 	-token *string
 */
-employee.put('/', [tokenValid, permissionValid], register);
+employee.put('/', [cookieParser, tokenValid, permissionValid], register);
 /*
 PUT
 	require
@@ -33,7 +34,7 @@ PUT
 	return
 	-status about account *string
 */
-employee.delete('/', [tokenValid, permissionValid], del);
+employee.delete('/', [cookieParser, tokenValid, permissionValid], del);
 /*
 DELETE
 	require
@@ -42,7 +43,7 @@ DELETE
 	return
 	-status about account *string
 */
-employee.get('/', [tokenValid, permissionValid], get);
+employee.get('/', [cookieParser, tokenValid, permissionValid], get);
 /*
 GET
 	require
@@ -50,7 +51,7 @@ GET
 	return
 	-all employess important informations *array of objects
 */
-employee.patch('/', [tokenValid, permissionValid], up);
+employee.patch('/', [cookieParser, tokenValid, permissionValid], up);
 /*
 PATCH
 	require

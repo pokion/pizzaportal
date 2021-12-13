@@ -9,10 +9,12 @@ const del = require('./delete');
 //middelware
 const tokenValid = require.main.require('./api/validation/tokenValid');
 const permissionValid = require.main.require('./api/validation/permissionValid');
+const cookieParser = require.main.require('./api/validation/cookieParser');
 
-menu.put('/', [tokenValid, permissionValid], add);
+
+menu.put('/', [cookieParser, tokenValid, permissionValid], add);
 menu.get('/', getMenu);
-menu.patch('/', [tokenValid, permissionValid], up);
-menu.delete('/', [tokenValid, permissionValid], del);
+menu.patch('/', [cookieParser, tokenValid, permissionValid], up);
+menu.delete('/', [cookieParser, tokenValid, permissionValid], del);
 
 module.exports = menu;

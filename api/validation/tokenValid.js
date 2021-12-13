@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 module.exports = async (req, res, next) => {
 	const token = req.body.token || req.query.token || req.headers['x-access-token'] || res.locals.cookie.token;
-
+	console.log(req.body)
 	if(!token){
 		return res.status(403).send('A token is required for authentication');
 	}

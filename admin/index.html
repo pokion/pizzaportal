@@ -31,55 +31,6 @@
           <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
         </div>
         <ul class="nav">
-          <li class="nav-item profile">
-            <div class="profile-desc">
-              <div class="profile-pic">
-                <div class="count-indicator">
-                  <img class="img-xs rounded-circle " src="assets/images/faces/face15.jpg" alt="">
-                  <span class="count bg-success"></span>
-                </div>
-                <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
-                  <span>Gold Member</span>
-                </div>
-              </div>
-              <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
-              <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
-                <a href="#" class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-settings text-primary"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-onepassword  text-info"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-calendar-today text-success"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </li>
           <li class="nav-item nav-category">
             <span class="nav-link">Navigation</span>
           </li>
@@ -88,8 +39,34 @@
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
-              <span class="menu-title">Dashboard</span>
+              <span class="menu-title">Statystyki</span>
             </a>
+          </li>
+          <li class="nav-item menu-items" target-panel="menu-main">
+            <a class="nav-link" onClick="panel.navi('#menu-main')" href="#">
+              <span class="menu-icon">
+                <i class="mdi mdi-food"></i>
+              </span>
+              <span class="menu-title">Menu</span>
+            </a>
+          </li>
+           <li class="nav-item menu-items">
+            <a class="nav-link" href="index.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-format-align-justify"></i>
+              </span>
+              <span class="menu-title">Zamówienia</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items" target-panel="emploee-main">
+            <a class="nav-link" onClick="panel.navi('#emploee-main')" href="#">
+              <span class="menu-icon">
+                <i class="mdi mdi-face"></i>
+              </span>
+              <span class="menu-title">Pracownicy</span>
+            </a>
+          </li>
+
         </ul>
       </nav>
       <!-- partial -->
@@ -103,152 +80,10 @@
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
               <span class="mdi mdi-menu"></span>
             </button>
-            <ul class="navbar-nav w-100">
-              <li class="nav-item w-100">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                  <input type="text" class="form-control" placeholder="Search products">
-                </form>
-              </li>
-            </ul>
             <ul class="navbar-nav navbar-nav-right">
-              <li class="nav-item dropdown d-none d-lg-block">
-                <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Create New Project</a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown">
-                  <h6 class="p-3 mb-0">Projects</h6>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-file-outline text-primary"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject ellipsis mb-1">Software Development</p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-web text-info"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject ellipsis mb-1">UI Development</p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-layers text-danger"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject ellipsis mb-1">Software Testing</p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 text-center">See all projects</p>
-                </div>
-              </li>
-              <li class="nav-item nav-settings d-none d-lg-block">
-                <a class="nav-link" href="#">
-                  <i class="mdi mdi-view-grid"></i>
-                </a>
-              </li>
-              <li class="nav-item dropdown border-left">
-                <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                  <i class="mdi mdi-email"></i>
-                  <span class="count bg-success"></span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-                  <h6 class="p-3 mb-0">Messages</h6>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <img src="assets/images/faces/face4.jpg" alt="image" class="rounded-circle profile-pic">
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject ellipsis mb-1">Mark send you a message</p>
-                      <p class="text-muted mb-0"> 1 Minutes ago </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <img src="assets/images/faces/face2.jpg" alt="image" class="rounded-circle profile-pic">
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject ellipsis mb-1">Cregh send you a message</p>
-                      <p class="text-muted mb-0"> 15 Minutes ago </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <img src="assets/images/faces/face3.jpg" alt="image" class="rounded-circle profile-pic">
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject ellipsis mb-1">Profile picture updated</p>
-                      <p class="text-muted mb-0"> 18 Minutes ago </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 text-center">4 new messages</p>
-                </div>
-              </li>
-              <li class="nav-item dropdown border-left">
-                <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-                  <i class="mdi mdi-bell"></i>
-                  <span class="count bg-danger"></span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                  <h6 class="p-3 mb-0">Notifications</h6>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-calendar text-success"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Event today</p>
-                      <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event today </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-settings text-danger"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Settings</p>
-                      <p class="text-muted ellipsis mb-0"> Update dashboard </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-link-variant text-warning"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Launch Admin</p>
-                      <p class="text-muted ellipsis mb-0"> New admin wow! </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 text-center">See all notifications</p>
-                </div>
-              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
-                    <img class="img-xs rounded-circle" src="assets/images/faces/face15.jpg" alt="">
                     <p class="mb-0 d-none d-sm-block navbar-profile-name">Henry Klein</p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
@@ -288,24 +123,290 @@
           </div>
         </nav>
         <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
+        <div class="main-panel d-none" id="emploee-main">
 
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
+          <div class="content-wrapper">
+            <div id="menu">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Pracownicy</h4>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Imię</th>
+                            <th>Nazwisko</th>
+                            <th>Email</th>
+                            <th>Prawa</th>
+                            <th>Data dodania</th>
+                            <th>Data zawarcia umowy</th>
+                            <th>Pozycja</th>
+                            <th>Numer telefonu</th>
+                            <th>Ustawienia</th>
+                          </tr>
+                        </thead>
+                        <tbody id="pracownicy">
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </footer>
-          <!-- partial -->
+
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">
+                    Dodaj pracownika
+                  </h4>
+                  <form class="forms-sample">
+                    <div class="form-group">
+                      <label for="firstname">Imię</label>
+                      <input type="text" placeholder="Imię" id="firstname" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="lastname">Nazwizko</label>
+                      <input type="text" placeholder="Nazwisko" id="lastname" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="text" placeholder="email@domain.it" id="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="password">Hasło</label>
+                      <input type="password" placeholder="Hasło" id="password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="position">Pozycja</label>
+                      <input type="text" placeholder="Pozycja" id="position" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="contractdate">Data zawarcia umowy</label>
+                      <input type="date" placeholder="Pozycja" id="contractdate" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="phonenumber">Numer telefonu</label>
+                      <input type="tel" pattern="[0-9]{9}" placeholder="111 222 333" id="phonenumber" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="type">Prawa</label>
+                      <input type="number" placeholder="1" id="type" class="form-control">
+                    </div>
+                  </form>
+                  <button onclick="panel.pracownicy().put()" type="submit" class="btn btn-primary mb-2">Dodaj</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- main-panel ends -->
-      </div>
+        <!-- employee end -->
+
+        <div class="main-panel d-none" id="menu-main">
+          <div class="content-wrapper">
+            <div id="menu">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Potrawy</h4>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Nazwa</th>
+                            <th>Cena</th>
+                            <th>Kategoria</th>
+                            <th>Składniki</th>
+                            <th>Ustawienia</th>
+                          </tr>
+                        </thead>
+                        <tbody id="menu">
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- table end -->
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">
+                    Dodaj potrawę
+                  </h4>
+                  <form class="forms-sample">
+                    <div class="form-group">
+                      <label for="nameAdd">Nazwa</label>
+                      <input type="text" placeholder="Nazwa" id="nameAdd" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="priceAdd">Cena</label>
+                      <input type="number" placeholder="29.30" id="priceAdd" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="categoryAdd">Kategoria</label>
+                      <input type="text" placeholder="pizza" id="categoryAdd" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="ingredientsAdd">Składniki</label>
+                      <input type="text" placeholder="ser, oregano, papryka" id="ingredientsAdd" class="form-control">
+                    </div>
+                  </form>
+                  <button onclick="panel.menu().put()" type="submit" class="btn btn-primary mb-2">Dodaj</button>
+                </div>
+              </div>
+            </div>
+            <!-- add end -->
+          </div>
+        </div>
+        <!-- menu end -->
+
       <!-- page-body-wrapper ends -->
     </div>
+
+    <!-- modal aktualizacja pracownicy -->
+<div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Dane pracownika</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="forms-sample">
+                    <div class="form-group">
+                      <label for="firstname">Imię</label>
+                      <input type="text" placeholder="Imię" id="firstnamePatch" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="lastname">Nazwizko</label>
+                      <input type="text" placeholder="Nazwisko" id="lastnamePatch" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="text" placeholder="email@domain.it" id="emailPatch" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="position">Pozycja</label>
+                      <input type="text" placeholder="Pozycja" id="positionPatch" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="contractdatePatch">Data zawarcia umowy</label>
+                      <input type="date" placeholder="Pozycja" id="contractdatePatch" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="phonenumber">Numer telefonu</label>
+                      <input type="tel" pattern="[0-9]{9}" placeholder="111 222 333" id="phonenumberPatch" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="type">Prawa</label>
+                      <input type="number" placeholder="1" id="typePatch" class="form-control">
+                    </div>
+                  </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+        <button type="button" onclick="panel.pracownicy().patch()" user-id="" id="patch" class="btn btn-primary">Uaktualnij</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- modal aktualizacja pracownicy end -->
+    <!-- modal aktualizacja manu -->
+<div class="modal fade" id="updateMenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Dane pracownika</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="forms-sample">
+                    <div class="form-group">
+                      <label for="name">Nazwa</label>
+                      <input type="text" placeholder="Imię" id="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="price">Cena</label>
+                      <input type="number" placeholder="Nazwisko" id="price" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="category">Kategoria</label>
+                      <input type="text" placeholder="email@domain.it" id="category" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="ingredients">Składniki</label>
+                      <p>Oddziel przecinkiem poszczególne składniki.</p>
+                      <input type="text" placeholder="Pozycja" id="ingredients" class="form-control">
+                    </div>
+                  </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+        <button type="button" onclick="panel.menu().patch()" menu-id="" id="patchMenu" class="btn btn-primary">Uaktualnij</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- modal aktualizacja manu end -->
+
+
+
+
+
+     <!-- modal usun end pracownicy -->
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Usuń pracownika</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Czy na pewno chcesz usunąć <span class="text-uppercase font-weight-bold" id="daneUsun"></span> ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+        <button type="button" onclick="panel.pracownicy().delete()" user-id="" id="delete" class="btn btn-danger">Usuń</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- modal usun end pracownicy end -->
+    <!-- modal usun menu -->
+<div class="modal fade" id="deleteMenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Usuń potrawę</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Czy na pewno chcesz usunąć <span class="text-uppercase font-weight-bold" id="daneUsunMenu"></span> ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+        <button type="button" onclick="panel.menu().delete()" menu-id="" id="deleteMenu" class="btn btn-danger">Usuń</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal usun menu end -->
+
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
@@ -326,6 +427,8 @@
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="/assets/js/dashboard.js"></script>
+    <script src="/assets/js/cookieMonster.js"></script>
+    <script src="/assets/js/panel.js"></script>
     <!-- End custom js for this page -->
   </body>
 </html>

@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 module.exports = async (req, res, next) => {
 
 	const EmployeeModel = mongoose.model('Employee');
-	const token = req.body.token || req.query.token || req.headers['x-access-token'];
+	const token = req.body.token || req.query.token || req.headers['x-access-token'] || res.locals.cookie.token;
 
 	const adminUser = await EmployeeModel.findOne({ token });
 

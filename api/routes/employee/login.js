@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
 					{ user_id: user._id, email},
 					new Date(user.createdate).getTime()+'',
 					{
-						expiresIn: "1h",
+						expiresIn: "8h",
 					}
 				);
 			user.token = token;
