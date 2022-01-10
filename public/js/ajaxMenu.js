@@ -65,7 +65,7 @@ request.done(function(resp){
 
 $('#pay').click(function(){
 	let nameUser = $('input[name="nameUser"]')[0].value;
-	let phoneNumber = $('input[name="number"]')[0].value;
+	let phoneNumber = $('input[name="number"]')[0].value.split(' ').join('');
 	let location = $('input[name="location"]')[0].value;
 	let description = $('textarea[name="description"]')[0].value;
 

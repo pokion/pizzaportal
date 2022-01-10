@@ -6,5 +6,5 @@ module.exports = async (req, res) => {
 
 	let data = await OrderModel.find().select("-__v");
 
-	res.status(500).send(data);
+	res.status(200).send(data);
 }

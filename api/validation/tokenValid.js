@@ -5,7 +5,7 @@ module.exports = async (req, res, next) => {
 	const token = req.body.token || req.query.token || req.headers['x-access-token'] || res.locals.cookie.token;
 	console.log(req.body)
 	if(!token){
-		return res.status(403).send('A token is required for authentication');
+		return res.status(403).send('A token is required for authentication. Please login again.');
 	}
 
 	try {
@@ -20,7 +20,7 @@ module.exports = async (req, res, next) => {
 			if(decoded.user_id == user._id && decoded.email == user.email){
 				return next();
 			} else {
-				return res.status(401).send('Invalid Token');
+				return res.status(401).send('Invalid Token. Please login again.');
 			}
 		}
 	} catch (err) {

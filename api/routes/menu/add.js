@@ -20,11 +20,11 @@ module.exports = async (req, res) => {
 			category,
 			ingredients,
 		}).save();
-		res.status(201).send("Dish added");
+		res.status(201).json({return: "Dish added"});
 
 	} catch (err){
 		
 		console.log(err);
-		res.status(500).send(err)
+		res.status(500).json({err})
 	}
 }

@@ -34,14 +34,6 @@
           <li class="nav-item nav-category">
             <span class="nav-link">Navigation</span>
           </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
-              <span class="menu-icon">
-                <i class="mdi mdi-speedometer"></i>
-              </span>
-              <span class="menu-title">Statystyki</span>
-            </a>
-          </li>
           <li class="nav-item menu-items" target-panel="menu-main">
             <a class="nav-link" onClick="panel.navi('#menu-main')" href="#">
               <span class="menu-icon">
@@ -50,8 +42,8 @@
               <span class="menu-title">Menu</span>
             </a>
           </li>
-           <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+           <li class="nav-item menu-items" target-panel="orders-main">
+            <a class="nav-link" onclick="panel.navi('#orders-main')" href="#">
               <span class="menu-icon">
                 <i class="mdi mdi-format-align-justify"></i>
               </span>
@@ -123,8 +115,48 @@
           </div>
         </nav>
         <!-- partial -->
-        <div class="main-panel d-none" id="emploee-main">
 
+        <!-- orders -->
+        <div class="main-panel d-none" id="orders-main">
+          <div class="content-wrapper">
+            
+            <div id="menu">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Zamówienia</h4>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Imię i nazwisko</th>
+                            <th>Numer telefonu</th>
+                            <th>Adress</th>
+                            <th>Uwagi/Opis</th>
+                            <th>Produkty</th>
+                            <th>Ilość</th>
+                            <th>Cena łączna</th>
+                            <th>Data zamówienia</th>
+                            <th>Ustawienia</th>
+                          </tr>
+                        </thead>
+                        <tbody id="orders">
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- orders end -->
+
+        <!-- menu -->
+        <div class="main-panel d-none" id="emploee-main">
           <div class="content-wrapper">
             <div id="menu">
               <div class="col-lg-12 grid-margin stretch-card">
@@ -204,7 +236,7 @@
           </div>
         </div>
         <!-- employee end -->
-
+        <!-- menu -->
         <div class="main-panel d-none" id="menu-main">
           <div class="content-wrapper">
             <div id="menu">
@@ -320,7 +352,7 @@
   </div>
 </div>
     <!-- modal aktualizacja pracownicy end -->
-    <!-- modal aktualizacja manu -->
+    <!-- modal aktualizacja menu -->
 <div class="modal fade" id="updateMenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -358,7 +390,7 @@
     </div>
   </div>
 </div>
-    <!-- modal aktualizacja manu end -->
+    <!-- modal aktualizacja menu end -->
 
 
 
@@ -406,6 +438,37 @@
   </div>
 </div>
 <!-- modal usun menu end -->
+<!-- modal całe zamówienie -->
+<div class="modal fade" id="fullOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Zamówienie</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Imię i nazwisko: <span id="orderName"></span></p>
+        <p>Numer telefonu: <span id="orderNumber"></span></p>
+        <p>Adress: <span id="orderLocation"></span></p>
+        <p>Uwagi/opis: <span id="orderDesc"></span></p>
+        <p>Ilość: <span id="orderValue"></span></p>
+        <p>Cena łączna: <span id="orderPrice"></span></p>
+        <p>Data zamówienia: <span id="orderDate"></span></p>
+        <p>Produkty:</p>
+        <br>
+        <div id="orderItems">
+          
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal całe zamówienie end -->
 
     <!-- container-scroller -->
     <!-- plugins:js -->

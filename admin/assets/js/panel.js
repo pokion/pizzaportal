@@ -1,5 +1,4 @@
-function Panel(token){
-	this.token = token;
+function Panel(){
 	this.main = null;
 
 	this.navi = function(stage){
@@ -37,7 +36,7 @@ function Panel(token){
 									<td target-id="${el._id}">${el.lastname}</td>
 									<td target-id="${el._id}">${el.email}</td>
 									<td target-id="${el._id}">${el.type}</td>
-									<td target-id="${el._id}">${el.createdate}</td>
+									<td target-id="${el._id}">${el.createdate.split('T')[0]} ${el.createdate.split('T')[1].split(':')[0]}:${el.createdate.split('T')[1].split(':')[1]}</td>
 									<td target-id="${el._id}">${el.contractdate}</td>
 									<td target-id="${el._id}">${el.position}</td>
 									<td target-id="${el._id}">${el.phonenumber}</td>
@@ -161,8 +160,10 @@ function Panel(token){
 					console.log(msg);
 					alert('Zapytanie poszło pomyślnie')
 				}).fail(function(msg){
-					if(msg.status == 401){
+					if(msg.status == 410){
 						alert(msg.responseText)
+						$('tbody#pracownicy').empty()
+						panel.pracownicy().get()
 					}else{
 						alert(msg.responseText)
 					}
@@ -182,6 +183,7 @@ function Panel(token){
 					dataType: 'json',
 				}).done(function(msg){
 					let tbody = $('tbody#menu');
+					window.menuDish = msg;
 
 					msg.forEach(function(el,index){
 						let tr = $('<tr></tr>');
@@ -307,8 +309,10 @@ function Panel(token){
 					console.log(msg);
 					alert(msg)
 				}).fail(function(msg){
-					if(msg.status == 401){
+					if(msg.status == 410){
 						alert(msg.responseText)
+						$('tbody#menu').empty()
+						panel.menu().get()
 					}else{
 						alert(msg.responseText)
 					}
@@ -317,10 +321,126 @@ function Panel(token){
 		}
 		return controler
 	}//koniec menu
+
+	this.orders = function(){
+		const controler = {
+			get: function(){
+				window.menuDish
+
+				$.ajax({
+					url: '/order',
+					method: 'GET',
+					dataType: 'json',
+				}).done(function(msg){
+					let tbody = $('tbody#orders');
+
+					msg.forEach(function(el,index){
+						let nazwy = [];
+						let cena = 0;
+						let ilosc = 0;
+						
+						el.ids.forEach(function(orderIds,index){
+							ilosc = ilosc + orderIds.value
+							window.menuDish.forEach(function(el,index){
+								if(orderIds.id == el._id){
+									let allItems = el.name;
+									if(orderIds.value > 1){
+										allItems = allItems + " x" + orderIds.value;
+									}
+									nazwy.push(allItems)
+									cena = cena + (el.price * orderIds.value)
+								}
+							})
+						})
+						let ids = [];
+						for(let i=0;i<el.ids.length;i++){
+							ids.push(el.ids[i].id + '.' + el.ids[i].value);
+						}
+
+						let tr = $('<tr></tr>');
+						let td = $(`<td>${index + 1}</td>
+									<td target-id="${el._id}">${el.nameUser}</td>
+									<td target-id="${el._id}">${el.phoneNumber}</td>
+									<td target-id="${el._id}">${el.location}</td>
+									<td target-id="${el._id}">${el.description}</td>
+									<td target-id="${el._id}" cart-ids="${ids.join(',')}">${nazwy.join(", ")}</td>
+									<td target-id="${el._id}">${ilosc}</td>
+									<td target-id="${el._id}">${cena.toFixed(2)} zł</td>
+									<td target-id="${el._id}">${el.date.split('T')[0]} ${el.date.split('T')[1].split(':')[0]}:${el.date.split('T')[1].split(':')[1]}</td>
+									<td>
+                            <button type="button" data-toggle="modal" id="${el._id}" onClick="panel.orders().delete('${el._id}')" class="btn btn-success btn-icon-text">
+                            <i class="mdi mdi-check"></i></button>
+                            <button type="button" data-toggle="modal" id="${el._id}" data-target="#fullOrder" class="btn btn-primary btn-icon-text">
+                            <i class="mdi mdi-arrow-expand "></i></button></td>`);
+						tr.append(td);
+						tbody.append(tr);
+
+					})
+					$('button[data-target="#fullOrder"]').click(function(el){
+						let orderInfo = $('td[target-id="'+el.currentTarget.id+'"]');
+						$('#orderName').text(`${$(orderInfo[0]).text()}`);
+						$('#orderNumber').text(`${$(orderInfo[1]).text()}`);
+						$('#orderLocation').text(`${$(orderInfo[2]).text()}`);
+						$('#orderDesc').text(`${$(orderInfo[3]).text()}`);
+						$('#orderValue').text(`${$(orderInfo[5]).text()}`);
+						$('#orderPrice').text(`${$(orderInfo[6]).text()}`);
+						$('#orderDate').text(`${$(orderInfo[7]).text()}`);
+
+						let ids = $(orderInfo[4]).attr('cart-ids').split(',');
+						let item;
+
+						for(const id in ids){
+							let idAndValue = ids[id].split('.')
+
+							window.menuDish.forEach(function(el,ind){
+								if(idAndValue[0] == el._id){
+									item = el.name + ' x' + idAndValue[1] + ': ' + el.ingredients.join(', ');
+									$('#orderItems').append($('<p class="display-4">'+ item +'</p>'))
+								}
+							})
+						}
+					})
+				}).fail(function(msg){
+					if(msg.status == 401){
+						alert(msg.responseText)
+					}else{
+						alert(msg.responseText)
+					}
+				})
+			},
+			delete: function(ID){
+				$.ajax({
+					url: '/order',
+					method: 'DELETE',
+					dataType: 'json',
+					data: {
+						id: ID
+					}
+				}).done(function(msg){
+					console.log(msg);
+					alert(msg)
+				}).fail(function(msg){
+					if(msg.status == 410){
+						alert(msg.responseText)
+						$('tbody#orders').empty();
+						panel.orders().get();
+					}else{
+						alert(msg.responseText)
+					}
+				})
+			}
+		};
+		return controler;
+	}
 }
 
 let panel = new Panel();
-//panel.pracownicy().get()
-panel.menu().get()
 panel.navi('#emploee-main')
-//console.log(cookieMonster.get('token'))
+panel.menu().get()
+panel.pracownicy().get()
+panel.orders().get()
+
+setInterval(function(){
+	$('tbody#orders').empty();
+	panel.orders().get();
+}, 60000)
