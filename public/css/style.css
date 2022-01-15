@@ -9005,3 +9005,26 @@ textarea.form-control {
   overflow-y: auto;
   overflow-x: hidden;
 }
+@media only screen and (max-width: 600px) {
+  #cartContent{
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 600px) {
+  #cartContent{
+    width: 90%;
+  }
+} 
+@media only screen and (min-width: 768px) {
+  #cartContent{
+    width: 60%;
+  }
+} 
+@media only screen and (min-width: 992px) {
+  #cartContent{
+    width: 40%;
+  }
+} 
+.home-slider{
+  pointer-events: none;
+}
