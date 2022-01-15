@@ -18,14 +18,14 @@ request.done(function(resp){
 		if(sortArray.includes(elem.category)){
 			let index = sortArray.findIndex(x => x === elem.category);
 
-			let div =	`<div class="col-md-4 text-center">
+			let div =	`<div class="col-md-4 text-center pt-5">
 							<div class="menu-wrap">
-								<a href="javascript:void(0);" class="menu-img img mb-4" style="background-image: url(images/pizza-1.jpg);"></a>
+								
 								<div class="text">
 									<h3><a href="#">${elem.name}</a></h3>
 									<p>${elem.ingredients.join(", ")}</p>
 									<p class="price"><span>${elem.price.toFixed(2)} zł</span></p>
-									<p><a href="javascript:cart.add('${elem._id}')" class="btn btn-white btn-outline-white">Add to cart</a></p>
+									<p><a href="javascript:cart.add('${elem._id}')" class="btn btn-white btn-outline-white">Dodaj do koszyka</a></p>
 								</div>
 							</div>
 						</div>`;
@@ -43,14 +43,14 @@ request.done(function(resp){
 
 			tabContent.append($(tabContentToAppend));
 			console.log(elem)
-			let div =	`<div class="col-md-4 text-center">
+			let div =	`<div class="col-md-4 text-center pt-5">
 							<div class="menu-wrap">
-								<a href="javascript:void(0);" class="menu-img img mb-4" style="background-image: url(images/pizza-1.jpg);"></a>
+								
 								<div class="text">
 									<h3><a href="#">${elem.name}</a></h3>
 									<p>${elem.ingredients.join(", ")}</p>
 									<p class="price"><span>${elem.price.toFixed(2)} zł</span></p>
-									<p><a href="javascript:cart.add('${elem._id}')" class="btn btn-white btn-outline-white">Add to cart</a></p>
+									<p><a href="javascript:cart.add('${elem._id}')" class="btn btn-white btn-outline-white">Dodaj do koszyka</a></p>
 								</div>
 							</div>
 						</div>`;
@@ -95,6 +95,6 @@ $('#pay').click(function(){
 		data
 	});
 	order.done(function(resp){
-		console.log(resp)
+		alert(resp.order)
 	})
 })

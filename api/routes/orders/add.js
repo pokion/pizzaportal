@@ -21,12 +21,12 @@ module.exports = async (req, res) => {
 				location,
 				description: description || null
 			}).save();
-		res.status(201).send("Order added");
+		res.status(201).json({order:"Order added"});
 		}
 
 	} catch (err){
 
 		console.log(err);
-		res.status(500).send(err);
+		res.status(500).json({order: err});
 	}
 }
