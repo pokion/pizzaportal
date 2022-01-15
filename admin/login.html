@@ -39,6 +39,7 @@
                     <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
                   </div>
                 </form>
+                <button type="submitGuest" class="btn btn-primary btn-block enter-btn">Login as a guest</button>
               </div>
             </div>
           </div>
@@ -61,5 +62,11 @@
     <script src="assets/js/settings.js"></script>
     <script src="assets/js/todolist.js"></script>
     <!-- endinject -->
+    <script type="text/javascript">
+      $('button[type="submitGuest"]').click(function(){
+        $('input[name="email"]').val('admin@admin.pl')
+        $('input[name="password"]').val('admin')
+      })
+    </script>
   </body>
 </html>

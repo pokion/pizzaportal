@@ -80,7 +80,7 @@ function Panel(){
 				let lastname = $('input#lastname')[0].value;
 				let email = $('input#email')[0].value;
 				let position = $('input#position')[0].value;
-				let phonenumber = $('input#phonenumber')[0].value;
+				let phonenumber = $('input#phonenumber')[0].value.split(' ').join('');
 				let password = $('input#password')[0].value;
 				let type = $('input#type')[0].value;
 				let contractdate = $('input#contractdate')[0].value;
@@ -374,7 +374,7 @@ function Panel(){
                             <i class="mdi mdi-arrow-expand "></i></button></td>`);
 						tr.append(td);
 						tbody.append(tr);
-
+							
 					})
 					$('button[data-target="#fullOrder"]').click(function(el){
 						let orderInfo = $('td[target-id="'+el.currentTarget.id+'"]');
