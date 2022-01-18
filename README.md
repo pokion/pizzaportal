@@ -1,5 +1,5 @@
 # pizzaportal
-Purpose of this project was to learn how to make API. All API routes was make with express. Database is MongoDB and I use mongoose to mantain it easly. 
+Purpose of this project was to learn how to make API. All API routes was make with express. Database is MongoDB and I use mongoose to maintain it easily.
 
 
 
@@ -29,3 +29,5 @@ Routes in API:
    
 Admin panel is in route "/admin".
 
+# All dishes are sort and render automatically by category.
+![Zrzut ekranu z 2022-01-18 16-32-45](https://user-images.githubusercontent.com/22731382/149967884-9220bf2b-a40f-4b2a-8757-8aed6dfc4b76.png)
